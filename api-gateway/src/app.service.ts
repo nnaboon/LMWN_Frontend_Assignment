@@ -11,10 +11,10 @@ import { Trip } from './models/trip';
 export class AppService {
   constructor(private httpService: HttpService) {}
 
-  async getTripsByKeyword(keyword: string): Promise<Trip[]> {
+  async getTripsByKeyword(keyword?: string): Promise<Trip[]> {
     try {
       const res = await lastValueFrom(
-        this.httpService.get('http://localhost:9000/trips'),
+        this.httpService.get(`${process.env.JSON_SERVER_URL}/trips`),
       );
 
       if (keyword) {
@@ -28,13 +28,10 @@ export class AppService {
         return res.data;
       }
     } catch (error) {
-      if (!error.response) {
-        throw new InternalServerErrorException('Cannot connect to JSON server');
+      if (error.response) {
+        throw new HttpException(error.message, error.response.status);
       } else {
-        throw new HttpException(
-          error.response.data.message,
-          error.response.status,
-        );
+        throw new InternalServerErrorException();
       }
     }
   }
