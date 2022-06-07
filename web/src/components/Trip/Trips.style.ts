@@ -1,15 +1,20 @@
 import styled from "@emotion/styled";
+import { mediaQueryMobile } from "style/responsive";
 
 export const Container = styled.div`
   display: flex;
   gap: 30px;
-  margin: 20px 0;
+  margin-top: 20px;
 `;
 
 export const MainImage = styled.img`
   width: 200px;
   border-radius: 15px;
   object-fit: cover;
+
+  ${mediaQueryMobile} {
+    display: none;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -24,6 +29,11 @@ export const ImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+
+  ${mediaQueryMobile} {
+    gap: 0;
+    justify-content: space-between;
+  }
 `;
 
 export const Image = styled.img`
@@ -31,6 +41,11 @@ export const Image = styled.img`
   height: 100px;
   border-radius: 15px;
   object-fit: cover;
+
+  ${mediaQueryMobile} {
+    width: 90px;
+    height: 90px;
+  }
 `;
 
 export const TripLink = styled.a`

@@ -11,7 +11,7 @@ export const DescriptionContainer = styled.div`
 
 export const Content = styled.div`
   display: inline-block;
-  color: #929292;
+  color: ${TEXT_COLOR.secondary};
   font-size: 15px;
 `;
 

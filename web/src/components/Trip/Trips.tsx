@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Text } from "components/Text";
-import { TextSize } from "components/Text/types";
 import {
   Container,
   ContentContainer,
@@ -11,14 +10,21 @@ import {
 } from "./Trips.style";
 import { Description } from "components/Description/Description";
 import { Tag } from "components/Tag/Tag";
+import { TextSize } from "../Text/types";
+import { useResponsive } from "style/responsive";
 
 export const Trip = ({ trip }: any) => {
+  const { isMobile } = useResponsive();
+
   return (
     <Container>
       <MainImage src={trip.photos[0]} alt='main trip img' />
       <ContentContainer>
         <TripLink href={trip.url} target='_blank' rel='noopener noreferrer'>
-          <Text fontSize='20px' fontWeight={700} color='black'>
+          <Text
+            size={isMobile ? TextSize.HEADER_4 : TextSize.HEADER_3}
+            fontWeight={700}
+            color='black'>
             {trip.title}
           </Text>
         </TripLink>

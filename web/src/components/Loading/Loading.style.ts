@@ -6,14 +6,15 @@ export const LoaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 90px;
 `;
 
 export const Loader = styled.div`
-  border: 10px solid #f3f3f3;
+  border: 8px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 10px solid ${TEXT_COLOR.primary};
-  width: 40px;
-  height: 40px;
+  border-top: 8px solid ${TEXT_COLOR.primary};
+  width: 30px;
+  height: 30px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { mediaQueryTablet, mediaQuerySmallTablet } from "../style/responsive";
 
 export const Container = styled.div`
   display: flex;
@@ -7,6 +8,20 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 80px;
+  gap: 20px;
+  padding: 50px 0px;
   word-break: break-all;
+  box-sizing: border-box;
+
+  ${mediaQueryTablet} {
+    width: 60%;
+  }
+
+  ${mediaQuerySmallTablet} {
+    width: 80%;
+  }
+`;
+
+export const Link = styled.a`
+  text-decoration: none;
 `;
