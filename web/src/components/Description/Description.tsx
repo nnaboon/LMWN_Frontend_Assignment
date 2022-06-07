@@ -1,8 +1,12 @@
 import React from "react";
-import { Text } from "components/Text";
 import { DescriptionContainer, Content, ReadMore } from "./Description.style";
 
-export const Description = ({ description, url }: any) => {
+interface DescriptionProps {
+  description?: string;
+  url?: string;
+}
+
+export const Description = ({ description, url }: DescriptionProps) => {
   const truncateDescription = description?.slice(0, 200).concat(" .... ");
 
   return (
