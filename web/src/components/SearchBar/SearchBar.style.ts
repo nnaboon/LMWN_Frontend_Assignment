@@ -7,7 +7,6 @@ export const SearchBarContainer = styled.div`
   align-items: center;
   width: 80%;
   color: ${TEXT_COLOR.search};
-  margin-bottom: 20px;
 `;
 
 export const SearchBarField = styled.input`

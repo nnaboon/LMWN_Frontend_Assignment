@@ -1,7 +1,7 @@
-import { action, computed, observable, makeObservable } from "mobx";
+import { action, observable, makeObservable } from "mobx";
 
 class KeywordStore {
-  keyword: string = undefined;
+  keyword: string = "";
 
   constructor() {
     makeObservable(this, {
