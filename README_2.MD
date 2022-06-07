@@ -2,18 +2,18 @@
 
 ## JSON Server
 
-cd json-server
-npm i
-npm start
+1. cd json-server
+2. npm i
+3. npm start
 
 ## API Gateway
 
-cd api-gateway
-npm i
-npm start
+1. cd api-gateway
+2. npm i
+3. npm start
 
 ## Web
 
-cd web
-npm i
-npm start
+1. cd web
+2. npm i
+3. npm start
