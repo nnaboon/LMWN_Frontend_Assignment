@@ -1,9 +1,11 @@
 import React from "react";
+import { useSearchParams } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { keywordStore } from "store/keywordStore";
 import { TripTagContainer, TripTag } from "./Tag.style";
 
 export const Tag = observer(({ tags }: any) => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const { setKeyword } = keywordStore;
 
   return (
@@ -14,6 +16,7 @@ export const Tag = observer(({ tags }: any) => {
           <TripTag
             onClick={() => {
               window.scrollTo(0, 0);
+              setSearchParams({ keyword: tag });
               setKeyword(tag);
             }}>
             {tag}
