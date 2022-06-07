@@ -15,7 +15,12 @@ import { TextSize } from "components/Text/types";
 
 export const LandingPage = observer(() => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data: trips, loading: tripsLoading, execute: getTrips } = useTrips();
+  const {
+    data: trips,
+    loading: tripsLoading,
+    execute: getTrips,
+    error,
+  } = useTrips();
   const { setKeyword } = keywordStore;
 
   useEffect(() => {
@@ -28,37 +33,43 @@ export const LandingPage = observer(() => {
 
   return (
     <Flex justify='center'>
-      <Container>
-        <Link to='/' style={{ textDecoration: "none" }}>
-          <Text
-            size={TextSize.HEADER_1}
-            marginY={20}
-            fontWeight={500}
-            color={TEXT_COLOR.primary}
-            onClick={() => {
-              setSearchParams({});
-              setKeyword("");
-            }}>
-            เที่ยวไหนดี
-          </Text>
-        </Link>
-        <SearchBar />
-        {tripsLoading ? (
-          <Loading />
-        ) : (
-          <React.Fragment>
-            {trips?.length > 0 ? (
-              <React.Fragment>
-                {trips?.map((trip) => (
-                  <Trip key={trip.eid} trip={trip} />
-                ))}
-              </React.Fragment>
-            ) : (
-              <TripNotFound />
-            )}
-          </React.Fragment>
-        )}
-      </Container>
+      {error ? (
+        <Flex height='100vh' justify='center'>
+          {error.message}
+        </Flex>
+      ) : (
+        <Container>
+          <Link to='/' style={{ textDecoration: "none" }}>
+            <Text
+              size={TextSize.HEADER_1}
+              marginY={20}
+              fontWeight={500}
+              color={TEXT_COLOR.primary}
+              onClick={() => {
+                setSearchParams({});
+                setKeyword("");
+              }}>
+              เที่ยวไหนดี
+            </Text>
+          </Link>
+          <SearchBar />
+          {tripsLoading ? (
+            <Loading />
+          ) : (
+            <React.Fragment>
+              {trips?.length > 0 ? (
+                <React.Fragment>
+                  {trips?.map((trip) => (
+                    <Trip key={trip.eid} trip={trip} />
+                  ))}
+                </React.Fragment>
+              ) : (
+                <TripNotFound />
+              )}
+            </React.Fragment>
+          )}
+        </Container>
+      )}
     </Flex>
   );
 });
