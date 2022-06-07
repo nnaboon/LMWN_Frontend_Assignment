@@ -3,8 +3,7 @@
 ## JSON Server
 
 1. cd json-server
-2. npm i
-3. npm start
+2. npm start
 
 ## API Gateway
 
